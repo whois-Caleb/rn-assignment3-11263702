@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import safeViewAndroid from "./assets/androidSafeView.js";
 import styles from './assets/Stylesheet.js';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function App() {
   return (
@@ -20,6 +21,20 @@ export default function App() {
 
         <Text style={styles.headerSubText}>14 tasks today</Text>
 
+      </View>
+
+      <View style={styles.searchContainer}>
+        <View style={styles.searchInputContainer}>
+        <Icon name='search-outline' size={20} color={'black'} style={styles.searchIcon}/>
+        <TextInput
+        style={styles.searchInput}
+        placeholder='Search'
+        />
+        </View>
+
+        <View style={styles.filterIconBg}>
+        <Icon name='options-outline' size={20} colour={'black'} style={styles.filterIcon}/>
+        </View>
       </View>
 
       

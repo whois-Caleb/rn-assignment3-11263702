@@ -1,12 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export default styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f7f0e8',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   scrollContainer: {
     backgroundColor: '#f7f0e8',
     alignItems: 'center',
@@ -53,5 +47,48 @@ export default styles = StyleSheet.create({
   headerSubText: {
     fontFamily: 'Lato-Regular',
     fontSize: 12,
-  }
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    padding: 20,
+    border: 1,
+  },
+  searchInputContainer:{
+    borderRadius: 12,
+    position: 'relative',
+    flexDirection: 'row',
+    paddingHorizontal: 2,
+    height: 40,
+    width: 250,
+    backgroundColor: 'white',
+  },
+  searchInput: {
+    position: 'absolute',
+    left: 25,
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    height: 40,
+    width: 200,
+    backgroundColor: 'white',
+  },
+  searchIcon: {
+    padding: 10,
+    position: 'absolute',
+    left: 10,
+    zIndex: 1,
+  },
+  filterIconBg: {
+    position: 'absolute',
+    right: 30,
+    top: 20,
+    borderRadius: 12,
+    backgroundColor: '#F0522F',
+    height: 40,
+    width: 40,
+
+  },
+  filterIcon: {
+    padding: 10,
+    position: 'absolute',
+  },
 });
