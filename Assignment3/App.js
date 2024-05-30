@@ -1,20 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image } from 'react-native';
+import safeViewAndroid from "./assets/androidSafeView.js";
+import styles from './assets/Stylesheet.js';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView style={safeViewAndroid.androidSafeArea}>
       <StatusBar style="auto" />
-    </View>
+
+      <View style = {styles.header}>
+        <View style={styles.subHeader}>
+          <Text style={styles.headerText}>Hello, Devs</Text>
+          
+          <View style ={styles.imageHolder}>
+          <View style={styles.ellipse}/>
+          <Image source={require('./assets/person.png')} style={styles.profileImage} />
+          </View>
+        </View>
+
+        <Text style={styles.headerSubText}>14 tasks today</Text>
+
+      </View>
+
+      
+      <View>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          <Text style={styles.scrollText}>
+          
+          </Text>
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
