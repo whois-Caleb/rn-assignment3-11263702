@@ -1,15 +1,28 @@
+import React from 'react';
+import { SafeAreaView, ScrollView, Text, View, Image, TextInput, FlatList, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image, TextInput } from 'react-native';
-import safeViewAndroid from "./styles/androidSafeView.js";
+import { useFonts, Lato_400Regular, Lato_700Bold } from '@expo-google-fonts/lato';
 import Icon from 'react-native-vector-icons/Ionicons';
-import styles from './styles/Stylesheet.js';
+import safeViewAndroid from "./styles/androidSafeView.js";
+import taskStyles from './styles/taskStylesheet.js';
 import searchComponentStyles from './styles/searchStylesheet.js';
 import headerComponentStyles from './styles/headerStylesheet.js';
 import categoriesContainerStyles from './styles/categoriesContainerStylesheet.js';
 import parentScrollComponentStyles from './styles/parentScrollViewStylesheet.js';
-import { Button, TouchableOpacity } from 'react-native';
+import TASKS from './taskList.js';
+
+
+const TaskItem = ({ title }) => (
+  <View style={taskStyles.taskItem}>
+    <Text style={taskStyles.taskTitle}>{title}</Text>
+  </View>
+);
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Lato_400Regular,
+    Lato_700Bold,
+  });
   return (
     <SafeAreaView style={safeViewAndroid.androidSafeArea}>
       <StatusBar style="auto" />
@@ -45,71 +58,67 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
-      
-      <ScrollView contentContainerStyle={parentScrollComponentStyles.scrollContainer}>
-        
-        <View style={categoriesContainerStyles.categoriesContainer}>
-            <Text style={categoriesContainerStyles.categoriesHeaderText}>
-              Categories
-            </Text>
-
-          <ScrollView contentContainerStyle={categoriesContainerStyles.tabScrollContainer} horizontal= {true}>
-
-           
-            <View style={categoriesContainerStyles.tab}>
-              <Text style={categoriesContainerStyles.tabNameText}>Exercise</Text>
-              <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
-              <Image source={require('./assets/young woman working online.png')} style={categoriesContainerStyles.tabImage} />
+      <FlatList
+        style={{ flex: 1 }}
+        data={TASKS}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <TaskItem title={item.title} description={item.description} />}
+        ListHeaderComponent={
+          <ScrollView contentContainerStyle={parentScrollComponentStyles.scrollContainer}>
+            <View style={categoriesContainerStyles.categoriesContainer}>
+              <Text style={categoriesContainerStyles.categoriesHeaderText}>Categories</Text>
+              <ScrollView contentContainerStyle={categoriesContainerStyles.tabScrollContainer} horizontal={true}>
+                <View style={categoriesContainerStyles.tab}>
+                  <Text style={categoriesContainerStyles.tabNameText}>Exercise</Text>
+                  <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
+                  <Image source={require('./assets/young woman working online.png')} style={categoriesContainerStyles.tabImage} />
+                </View>
+                <View style={categoriesContainerStyles.tab}>
+                  <Text style={categoriesContainerStyles.tabNameText}>Study</Text>
+                  <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
+                  <Image source={require('./assets/young woman working at desk.png')} style={categoriesContainerStyles.tabImage} />
+                </View>
+                <View style={categoriesContainerStyles.tab}>
+                  <Text style={categoriesContainerStyles.tabNameText}>Code</Text>
+                  <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
+                  <Image source={require('./assets/young man coding.png')} style={categoriesContainerStyles.tabImage} />
+                </View>
+                <View style={categoriesContainerStyles.tab}>
+                  <Text style={categoriesContainerStyles.tabNameText}>Cook</Text>
+                  <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
+                  <Image source={require('./assets/young man cooking.png')} style={categoriesContainerStyles.tabImage} />
+                </View>
+                <View style={categoriesContainerStyles.tab}>
+                  <Text style={categoriesContainerStyles.tabNameText}>Write</Text>
+                  <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
+                  <Image source={require('./assets/young woman writing.png')} style={categoriesContainerStyles.tabImage} />
+                </View>
+                <View style={categoriesContainerStyles.tab}>
+                  <Text style={categoriesContainerStyles.tabNameText}>Paint</Text>
+                  <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
+                  <Image source={require('./assets/young boy painting.png')} style={categoriesContainerStyles.tabImage} />
+                </View>
+                <View style={categoriesContainerStyles.tab}>
+                  <Text style={categoriesContainerStyles.tabNameText}>Garden</Text>
+                  <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
+                  <Image source={require('./assets/woman gardening.png')} style={categoriesContainerStyles.tabImage} />
+                </View>
+                <View style={categoriesContainerStyles.tab}>
+                  <Text style={categoriesContainerStyles.tabNameText}>Read</Text>
+                  <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
+                  <Image source={require('./assets/young man reading.png')} style={categoriesContainerStyles.tabImage} />
+                </View>
+              </ScrollView>
             </View>
-
-            <View style={categoriesContainerStyles.tab}>
-              <Text style={categoriesContainerStyles.tabNameText}>Study</Text>
-              <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
-              <Image source={require('./assets/young woman working at desk.png')} style={categoriesContainerStyles.tabImage} />
+            <View style={taskStyles.tasksHeaderContainer}>
+              <Text style={taskStyles.tasksHeaderText}>Ongoing Tasks</Text>
             </View>
-
-            <View style={categoriesContainerStyles.tab}>
-              <Text style={categoriesContainerStyles.tabNameText}>Code</Text>
-              <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
-              <Image source={require('./assets/young man coding.png')} style={categoriesContainerStyles.tabImage} />
-            </View>              
-           
-            <View style={categoriesContainerStyles.tab}>
-              <Text style={categoriesContainerStyles.tabNameText}>Cook</Text>
-              <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
-              <Image source={require('./assets/young man cooking.png')} style={categoriesContainerStyles.tabImage} />
-            </View>
-
-            <View style={categoriesContainerStyles.tab}>
-              <Text style={categoriesContainerStyles.tabNameText}>Write</Text>
-              <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
-              <Image source={require('./assets/young woman writing.png')} style={categoriesContainerStyles.tabImage} />
-            </View>
-
-            <View style={categoriesContainerStyles.tab}>
-              <Text style={categoriesContainerStyles.tabNameText}>Paint</Text>
-              <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
-              <Image source={require('./assets/young boy painting.png')} style={categoriesContainerStyles.tabImage} />
-            </View>
-
-            <View style={categoriesContainerStyles.tab}>
-              <Text style={categoriesContainerStyles.tabNameText}>Garden</Text>
-              <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
-              <Image source={require('./assets/woman gardening.png')} style={categoriesContainerStyles.tabImage} />
-            </View>
-
-            <View style={categoriesContainerStyles.tab}>
-              <Text style={categoriesContainerStyles.tabNameText}>Read</Text>
-              <Text style={categoriesContainerStyles.tabSubText}>12 Tasks</Text>
-              <Image source={require('./assets/young man reading.png')} style={categoriesContainerStyles.tabImage} />
-            </View>
-
           </ScrollView>
-        </View>
-        
-        
-      </ScrollView>
+        }
+      />
+      
       
     </SafeAreaView>
   );
 }
+

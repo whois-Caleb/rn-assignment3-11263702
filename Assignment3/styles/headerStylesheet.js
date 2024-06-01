@@ -35,12 +35,10 @@ export default headerComponentStyles = StyleSheet.create({
         borderRadius: 25,
       },
       headerText: {
-        fontFamily: 'Lato-Regular',
-        fontSize: 32,
+       fontSize: 32,
         fontWeight: '700',
       },
       headerSubText: {
-        fontFamily: 'Lato-Regular',
         fontSize: 12,
       },
     
