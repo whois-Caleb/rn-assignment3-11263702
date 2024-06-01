@@ -45,3 +45,21 @@ Was used to display the search and filter icons
 ## SafeAreaView
 
 A custom safeAreaView component was used to unsure that all content was properly displayed on both Android and IOS devices
+
+## Screenshots
+
+![Alt text](Assignment3/assets/Screenshots/photo_1_2024-06-01_22-49-04.jpg "App Screenshot")
+
+![Alt text](Assignment3/assets/Screenshots/photo_2_2024-06-01_22-49-04.jpg "App Screenshot")
+
+![Alt text](Assignment3/assets/Screenshots/photo_3_2024-06-01_22-49-04.jpg "App Screenshot")
+
+![Alt text](Assignment3/assets/Screenshots/photo_5_2024-06-01_22-49-04.jpg "App Screenshot")
+
+![Alt text](Assignment3/assets/Screenshots/photo_6_2024-06-01_22-49-04.jpg "App Screenshot")
+
+![Alt text](Assignment3/assets/Screenshots/photo_7_2024-06-01_22-49-04.jpg "App Screenshot")
+
+![Alt text](Assignment3/assets/Screenshots/photo_8_2024-06-01_22-49-04.jpg "App Screenshot")
+
+![Alt text](Assignment3/assets/Screenshots/photo_9_2024-06-01_22-49-04.jpg "App Screenshot")
